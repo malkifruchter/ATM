@@ -1,0 +1,54 @@
+#include<iostream>
+#include<string>
+#include<string.h>
+using namespace std;
+void showmenu() {
+	cout << "********menu********" << endl <<
+		"1. Check Balance" << endl <<
+		"2. Deposit" << endl <<
+		"3. Withrawal" << endl <<
+		"4. exit"<<endl<<
+		"********************" << endl <<
+		"please enter your choice" << endl;
+}
+int main() {
+	double balance = 855522.3;
+	int choice = -1;
+	cout << "your balcnce is " << balance << endl;
+	while (choice != 4) {
+		showmenu();
+		cin >> choice;
+		system("cls");
+		switch (choice) {
+		case 1:
+			cout << "your balcnce is " << balance << endl << endl;
+			break;
+		case 2:
+			int deposit;
+			cout << "How much would you like to deposit?" << endl;
+			cin >> deposit;
+			balance += deposit;
+			cout << "the deposit was made successfully your new balance is " << balance << endl;
+			break;
+		case 3:
+			int withdrawal;
+			if (balance == 0) {
+				cout << "unfortunately your balance is 0 so withdrawal money will not be possible" << endl;
+			}
+			cout << "Please enter the withdrawal amount" << endl;
+			cin >> withdrawal;
+			if (balance - withdrawal > 0) {
+				cout << "please take your mony" << endl;
+				balance -= withdrawal;
+			}
+			else cout << "unfortunately the amount you asked for is more then yur balance your account" <<
+				endl << "your balance is " << balance << "you can withdrawal all your balance or less" << endl;
+			break;
+		case 4:
+			break;			
+		default:
+			cout << "please enter only 1/2/3" << endl;
+		}
+	}
+	return 0;
+}
